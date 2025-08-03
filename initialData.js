@@ -24,3 +24,7 @@ const columns = {
   done: document.querySelector('[data-status="done"] .tasks-container'),
 };
 
+// Create modal element and attach to the DOM
+const modal = createModal();
+document.body.appendChild(modal);
+let currentTask = null;
