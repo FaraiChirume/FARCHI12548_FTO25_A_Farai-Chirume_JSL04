@@ -38,3 +38,42 @@ function renderTasks(tasks) {
   });
 }
 
+// Clear all task elements from columns
+function clearColumns() {
+  Object.values(columns).forEach(col => col.innerHTML = '');
+}
+
+// Create a DOM element for a single task
+function createTaskElement(task) {
+  const div = document.createElement('div');
+  div.className = 'task-div';
+  div.textContent = task.title;
+  div.addEventListener('click', () => openModal(task)); // Open modal when task is clicked
+  return div;
+}
+
+// Create the modal element and its inner content and logic
+function createModal() {
+  const modal = document.createElement('div');
+  modal.id = 'task-modal';
+  modal.style.display = 'none';
+  modal.innerHTML = `
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button id="modal-close">&times;</button>
+      <h3>Task</h3>
+      <label>Title</label>
+      <input type="text" id="modal-title" placeholder="Task title" />
+      <label>Description</label>
+      <textarea id="modal-desc" rows="4" placeholder="Task description"></textarea>
+      <label>Status</label>
+      <select id="modal-status">
+        <option value="todo">To Do</option>
+        <option value="doing">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+      <button id="modal-save">Save</button>
+    </div>
+  `;
+}
+
