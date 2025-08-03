@@ -82,4 +82,12 @@ function createModal() {
     modal.style.display = 'none';
   });
 
+   // Save button updates the current task and re-renders the UI
+  modal.querySelector('#modal-save').addEventListener('click'), () => {
+    if (!currentTask) return;
+    const updatedTitle = document.getElementById('modal-title').value;
+    const updatedDesc = document.getElementById('modal-desc').value;
+    const updatedStatus = document.getElementById('modal-status').value;
+  }
+
 
