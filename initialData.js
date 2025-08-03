@@ -7,7 +7,7 @@
  * @property {TaskStatus} status
  */
 
-// Initial list of tasks that are rendered into kanban board 
+// Initial list of tasks for rendering into the Kanban board
 const initialTasks = [
   { id: 1, title: "Launch Epic Career 🚀", description: "Create a killer Resume", status: "todo" },
   { id: 2, title: "Master JavaScript 💛", description: "Get comfortable with the fundamentals", status: "doing" },
@@ -50,6 +50,7 @@ function createTaskElement(task) {
   div.textContent = task.title;
   div.addEventListener('click', () => openModal(task)); // Open modal when task is clicked
   return div;
+}
 
 // Create the modal element and its inner content and logic
 function createModal() {
@@ -74,21 +75,20 @@ function createModal() {
       <button id="modal-save">Save</button>
     </div>
   `;
-}
-
- // Close modal when the close button is clicked
+ 
+  // Close modal when the close button is clicked
   modal.querySelector('#modal-close').addEventListener('click', () => {
     modal.style.display = 'none';
   });
 
-   // Save button updates the current task and re-renders the UI
+  // Save button updates the current task and re-renders the UI
   modal.querySelector('#modal-save').addEventListener('click', () => {
     if (!currentTask) return;
     const updatedTitle = document.getElementById('modal-title').value;
     const updatedDesc = document.getElementById('modal-desc').value;
     const updatedStatus = document.getElementById('modal-status').value;
 
-   // Update task fields with new data from modal inputs
+    // Update task fields with new data from modal inputs
     currentTask.title = updatedTitle;
     currentTask.description = updatedDesc;
     currentTask.status = updatedStatus;
@@ -98,7 +98,7 @@ function createModal() {
     modal.style.display = 'none';
   });
 
- return modal;
+  return modal;
 }
 
 // Opens the modal with the given task's data populated
@@ -116,8 +116,4 @@ function openModal(task) {
 // Initial render after page load
 document.addEventListener('DOMContentLoaded', () => {
   renderTasks(initialTasks);
-});
-
-
-
-
+}); 
