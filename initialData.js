@@ -77,3 +77,9 @@ function createModal() {
   `;
 }
 
+ // Close modal when the close button is clicked
+  modal.querySelector('#modal-close').addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+
