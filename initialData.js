@@ -1,3 +1,12 @@
+/**
+ * @typedef {"todo" | "doing" | "done"} TaskStatus
+ * @typedef {Object} Task
+ * @property {number} id
+ * @property {string} title
+ * @property {string} description
+ * @property {TaskStatus} status
+ */
+
 // Initial list of tasks that are rendered into kanban board 
 const initialTasks = [
   { id: 1, title: "Launch Epic Career 🚀", description: "Create a killer Resume", status: "todo" },
