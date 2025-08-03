@@ -50,7 +50,6 @@ function createTaskElement(task) {
   div.textContent = task.title;
   div.addEventListener('click', () => openModal(task)); // Open modal when task is clicked
   return div;
-}
 
 // Create the modal element and its inner content and logic
 function createModal() {
@@ -83,11 +82,42 @@ function createModal() {
   });
 
    // Save button updates the current task and re-renders the UI
-  modal.querySelector('#modal-save').addEventListener('click'), () => {
+  modal.querySelector('#modal-save').addEventListener('click', () => {
     if (!currentTask) return;
     const updatedTitle = document.getElementById('modal-title').value;
     const updatedDesc = document.getElementById('modal-desc').value;
     const updatedStatus = document.getElementById('modal-status').value;
-  }
+
+   // Update task fields with new data from modal inputs
+    currentTask.title = updatedTitle;
+    currentTask.description = updatedDesc;
+    currentTask.status = updatedStatus;
+
+    // Re-render all tasks with updated information
+    renderTasks(initialTasks);
+    modal.style.display = 'none';
+  });
+
+ return modal;
+}
+
+// Opens the modal with the given task's data populated
+function openModal(task) {
+  currentTask = task;
+  const modalEl = document.getElementById('task-modal');
+  modalEl.style.display = 'flex';
+
+  // Populate modal inputs with selected task data
+  document.getElementById('modal-title').value = task.title;
+  document.getElementById('modal-desc').value = task.description;
+  document.getElementById('modal-status').value = task.status;
+}
+
+// Initial render after page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderTasks(initialTasks);
+});
+
+
 
 
