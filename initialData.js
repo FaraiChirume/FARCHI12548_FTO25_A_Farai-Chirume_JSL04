@@ -28,3 +28,13 @@ const columns = {
 const modal = createModal();
 document.body.appendChild(modal);
 let currentTask = null;
+
+// Render all tasks into their respective columns
+function renderTasks(tasks) {
+  clearColumns();
+  tasks.forEach(task => {
+    const el = createTaskElement(task);
+    columns[task.status].appendChild(el);
+  });
+}
+
