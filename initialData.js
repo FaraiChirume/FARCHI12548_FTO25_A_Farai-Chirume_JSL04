@@ -16,3 +16,11 @@ const initialTasks = [
   { id: 12, title: "Contribute to Open Source Projects 🌐", description: "Gain practical experience and collaborate with others in the software development community", status: "done" },
   { id: 13, title: "Build Portfolio Projects 💪", description: "Create a portfolio showcasing your skills and projects to potential employers", status: "done" }
 ];
+
+// DOM references for the three task columns
+const columns = {
+  todo: document.querySelector('[data-status="todo"] .tasks-container'),
+  doing: document.querySelector('[data-status="doing"] .tasks-container'),
+  done: document.querySelector('[data-status="done"] .tasks-container'),
+};
+
